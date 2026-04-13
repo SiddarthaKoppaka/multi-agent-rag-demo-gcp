@@ -1,0 +1,102 @@
+[
+  {
+    "id": "EVAL-001",
+    "category": "policy_lookup",
+    "agent_expected": "rag_agent",
+    "question": "What is the single purchase approval threshold that requires both the Engineering Manager and FinOps CoE sign-off?",
+    "ground_truth": "Purchases between $2,500 and $9,999 require joint approval from the Engineering Manager and FinOps CoE before provisioning.",
+    "keywords": ["2500", "9999", "Engineering Manager", "FinOps CoE"],
+    "source_doc": "cloud_cost_management_policy.md",
+    "section": "2.2"
+  },
+  {
+    "id": "EVAL-002",
+    "category": "policy_lookup",
+    "agent_expected": "rag_agent",
+    "question": "How many days does a Cloud Run service need to have zero invocations before it is considered idle?",
+    "ground_truth": "A Cloud Run service is considered idle after 21 consecutive days with zero invocations.",
+    "keywords": ["21", "Cloud Run", "invocations", "idle"],
+    "source_doc": "cloud_cost_management_policy.md",
+    "section": "4.1"
+  },
+  {
+    "id": "EVAL-003",
+    "category": "policy_lookup",
+    "agent_expected": "rag_agent",
+    "question": "What happens to a resource on Day 21 of being flagged as idle?",
+    "ground_truth": "On Day 21, the resource is scheduled for suspension pending team acknowledgment.",
+    "keywords": ["Day 21", "suspension", "acknowledgment"],
+    "source_doc": "cloud_cost_management_policy.md",
+    "section": "4.2"
+  },
+  {
+    "id": "EVAL-004",
+    "category": "contract_lookup",
+    "agent_expected": "rag_agent",
+    "question": "What are the payment terms on the GCP Committed Use Discount contract?",
+    "ground_truth": "Invoices are issued on the first business day of each month for the prior month's charges. Payment is due Net 30 from invoice date. Late payments incur 1.5% per month penalty.",
+    "keywords": ["Net 30", "monthly", "first business day", "1.5%"],
+    "source_doc": "gcp_cud_contract_2025.md",
+    "section": "2"
+  },
+  {
+    "id": "EVAL-005",
+    "category": "contract_lookup",
+    "agent_expected": "rag_agent",
+    "question": "When was the deadline to cancel or modify the GCP CUD contract and what was the notice period required?",
+    "ground_truth": "The cancellation deadline was December 1, 2025, requiring 90 days written notice before the February 28, 2026 contract end date. Since no notice was received, the contract auto-renewed for March 2026 to February 2027.",
+    "keywords": ["December 1, 2025", "90 days", "auto-renewed", "February 28, 2026"],
+    "source_doc": "gcp_cud_contract_2025.md",
+    "section": "4.1"
+  },
+  {
+    "id": "EVAL-006",
+    "category": "computation",
+    "agent_expected": "tool_agent",
+    "question": "Which teams exceeded their January 2026 monthly budget based on the billing export?",
+    "ground_truth": "Data Analytics team exceeded budget. Their approved budget is $8,500/month. January billing shows approximately $13,953 (standard BigQuery + Dataflow + the $6,840 anomaly spike), which is 164% of budget.",
+    "keywords": ["data-analytics", "exceeded", "budget"],
+    "source_doc": "gcp_billing_export_jan2026.csv + q1_2026_team_budgets.csv",
+    "section": "computation"
+  },
+  {
+    "id": "EVAL-007",
+    "category": "computation",
+    "agent_expected": "tool_agent",
+    "question": "How many idle resources are currently flagged, and what is their total monthly cost?",
+    "ground_truth": "9 idle or under-utilized resources are flagged. Total monthly cost: approximately $4,658 ($445.70 + $89.40 + $0 + $284 + $1820.40 + $910.20 + $7.30 + $420 + $682).",
+    "keywords": ["9", "idle", "4658", "monthly cost"],
+    "source_doc": "idle_resources_jan2026.csv",
+    "section": "computation"
+  },
+  {
+    "id": "EVAL-008",
+    "category": "computation",
+    "agent_expected": "tool_agent",
+    "question": "Are there any untagged resources in the January 2026 billing export, and what is their cost?",
+    "ground_truth": "Yes. Two untagged Compute Engine VMs in project untagged-project-99 (rogue-vm-01 and rogue-vm-02) totaling $2,730.60 in January 2026 with no team, environment, or owner labels.",
+    "keywords": ["untagged", "rogue-vm", "2730", "untagged-project-99"],
+    "source_doc": "gcp_billing_export_jan2026.csv",
+    "section": "computation"
+  },
+  {
+    "id": "EVAL-009",
+    "category": "policy_lookup",
+    "agent_expected": "rag_agent",
+    "question": "What is the required CUD coverage target percentage for Acme Corp?",
+    "ground_truth": "The minimum CUD coverage target is 60% of eligible compute spend. The optimal target is 80%. Current coverage as of Q1 2026 is 67%.",
+    "keywords": ["60%", "80%", "67%", "CUD coverage"],
+    "source_doc": "cloud_cost_management_policy.md",
+    "section": "6.2"
+  },
+  {
+    "id": "EVAL-010",
+    "category": "incident_lookup",
+    "agent_expected": "rag_agent",
+    "question": "What was the root cause of the P1 incident INC-2025-052 and how much did it cost?",
+    "ground_truth": "A distributed ML training job was accidentally submitted to the production GPU cluster instead of sandbox. No time limit was set and 24 A100 instances ran for 71 hours. Total excess spend was $18,420.",
+    "keywords": ["INC-2025-052", "GPU", "A100", "sandbox", "18420", "71 hours"],
+    "source_doc": "anomaly_incident_report_q4_2025.md",
+    "section": "INC-2025-052"
+  }
+]

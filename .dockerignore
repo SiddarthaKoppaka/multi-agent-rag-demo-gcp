@@ -1,0 +1,13 @@
+.venv/
+.git/
+.adk/
+__pycache__/
+*.pyc
+.DS_Store
+logs/
+.env
+.env.example
+tests/
+infra/
+*.db
+node_modules/

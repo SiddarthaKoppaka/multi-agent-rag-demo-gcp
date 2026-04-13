@@ -1,0 +1,7 @@
+team,cost_center,monthly_budget_usd,q1_2026_budget_usd,alert_threshold_pct,hard_cap_usd,environment_split_prod_pct,environment_split_staging_pct,environment_split_dev_pct,primary_services,budget_owner_email,approved_date,chargeback_model
+platform,CC-1042,12000,36000,80,14400,65,20,15,"Compute Engine,GKE,Cloud Load Balancing,Cloud Armor",r.patel@acmecorp.com,2025-12-15,showback
+data-analytics,CC-2017,8500,25500,80,10200,50,30,20,"BigQuery,Dataflow,Cloud Storage,Pub/Sub",analytics-lead@acmecorp.com,2025-12-15,showback
+ml-ai,CC-3055,15000,45000,80,18000,70,20,10,"Vertex AI,Cloud TPU,Cloud Storage,Compute Engine",ml-lead@acmecorp.com,2025-12-15,showback
+backend,CC-1088,6000,18000,80,7200,60,25,15,"Cloud Run,Cloud SQL,Memorystore,Pub/Sub",backend-lead@acmecorp.com,2025-12-15,showback
+frontend,CC-2031,2000,6000,80,2400,40,35,25,"Firebase,Cloud CDN,Cloud Storage",frontend-lead@acmecorp.com,2025-12-15,showback
+security,CC-4001,3500,10500,80,4200,80,15,5,"Cloud Armor,Cloud KMS,Security Command Center,Cloud Logging",security-lead@acmecorp.com,2025-12-15,showback

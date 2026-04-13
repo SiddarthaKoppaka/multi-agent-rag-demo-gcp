@@ -1,0 +1,22 @@
+services:
+  fin-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - fin_agent/.env
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - analyst-agent
+
+  analyst-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.analyst
+    ports:
+      - "8001:8001"
+    env_file:
+      - fin_agent/.env
