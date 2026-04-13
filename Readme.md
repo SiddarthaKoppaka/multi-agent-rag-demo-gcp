@@ -25,28 +25,6 @@ In most mid-to-large companies today, this cycle is **manually driven** — a Fi
 
 That manual loop is what we're replacing.
 
----
-
-## Key Terms to Know Cold
-
-**Cost Allocation** — tagging cloud resources (VMs, storage, functions) to a team, project, or business unit so you know who owns what spend.
-
-**Showback vs. Chargeback** — Showback means you *show* teams their costs for awareness. Chargeback means you actually *bill* internal teams. Most orgs start with showback.
-
-**Rightsizing** — identifying resources that are over-provisioned (a VM with 64GB RAM running at 4% utilization) and recommending a smaller, cheaper tier.
-
-**Idle Resources** — cloud resources that exist but aren't doing useful work. A stopped VM still costs money for the disk. A Load Balancer with zero traffic still has a fixed fee.
-
-**Anomaly Detection** — catching spend spikes that deviate from historical baseline. A service that normally costs $200/month suddenly costs $4,000 — something changed.
-
-**Budget Policy** — a written rule like *"No single team can exceed $5,000/month on compute without VP approval"* or *"All VMs must have cost-center tags."*
-
-**Invoice Reconciliation** — matching line items on a cloud bill against expected spend, approved POs, and internal budgets.
-
-**Unit Economics** — cost per meaningful business metric. *"We spend $0.003 per API call"* or *"Our cost per active user is $1.20/month."*
-
----
-
 ## What We're Mimicking / Replacing with AI
 
 Here is the exact manual workflow we're automating:
